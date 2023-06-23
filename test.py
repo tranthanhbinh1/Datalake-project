@@ -14,14 +14,14 @@ filename = 'taxi+_zone_lookup.csv'
 with open(filename, 'wb') as file:
     ftp.retrbinary('RETR ' + filename, file.write)
 
-# # Connect to Kafka
-# conf = {'bootstrap.servers': 'localhost:9092'}
-# producer = Producer(conf)
-#
-# # Publish the downloaded file to a Kafka topic
-# with open(filename, 'rb') as file:
-#     data = file.read()
-#     producer.produce('my-topic', value=data)
+# Connect to Kafka
+conf = {'bootstrap.servers': 'localhost:9092'}  # config
+producer = KafkaProducer(conf)
+
+# Publish the downloaded file to a Kafka topic
+with open(filename, 'rb') as file:
+    data = file.read()
+    producer.produce('my-topic', value=data)
 
 # Close the FTP connection and flush Kafka messages
 ftp.quit()
