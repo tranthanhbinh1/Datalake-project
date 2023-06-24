@@ -20,7 +20,7 @@ for filename in filenames:
 
 ftp.quit()
 
-Convert parquet to csv for spooldir
+# Convert parquet to csv for spooldir
 all_files = os.listdir(DATA_PATH)
 parquet_files = []
 for file in all_files:
