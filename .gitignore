@@ -177,3 +177,7 @@ cython_debug/
 /spark-1ae468b1-fd86-4866-898f-26dee0d2b374
 
 /spark-e1f58f69-980d-48e2-82f4-2328a6fb6340
+data/yellow_tripdata_2023-01.csv
+.gitignore
+data/yellow_tripdata_2023-03.csv
+data/yellow_tripdata_2023-02.csv

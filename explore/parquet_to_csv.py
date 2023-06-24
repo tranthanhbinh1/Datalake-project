@@ -26,7 +26,6 @@ parquet_files = []
 for file in all_files:
     if file.endswith('.parquet'):
         parquet_files.append(file)
-print(parquet_files)
 
 for name in parquet_files:
     file_name = os.path.splitext(name)[0]
@@ -39,7 +38,6 @@ parquet_files = []
 for file in all_files:
     if file.endswith('.parquet'):
         parquet_files.append(file)
-print(parquet_files)
 
 for name in parquet_files:
     file_name = os.path.splitext(name)[0]
