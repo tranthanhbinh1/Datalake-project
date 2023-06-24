@@ -1,5 +1,6 @@
 from ftplib import FTP
 import pandas as pd
+import os
 
 
 ftp_ip = '192.168.1.10'
@@ -13,11 +14,12 @@ ftp.login(ftp_usr, ftp_pwd)
 # filename = 'taxi+_zone_lookup.csv'
 # with open(filename, 'wb') as file:
 #     ftp.retrbinary('RETR ' + filename, file.write)
-files = ftp.nlst()
-for file in files:
-    if file.endswith('.parquet'):
-        with open(file, 'wb') as f:
-            ftp.retrbinary('RETR' + file, f.write)
+filenames = ftp.nlst()
+for filename in filenames:
+    if filename.endswith('.parquet'):
+        local_filename = os.path.join('/home/tb24/projects/Datalake-project/data', filename)
+        file = open(local_filename, 'wb')
+        ftp.retrbinary('RETR ' + filename, file.write)
 
 ftp.quit()
 
