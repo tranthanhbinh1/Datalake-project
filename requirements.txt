@@ -3,3 +3,5 @@ sqlalchemy == 2.0.16
 pandas~=1.5.3
 psycopg2-binary == 2.9.6
 kafka-python == 2.0.2
+boto3 ~= 1.26.160
+minio ~= 7.1.0
