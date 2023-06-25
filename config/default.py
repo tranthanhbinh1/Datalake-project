@@ -1,6 +1,6 @@
 import os
 
-password = os.environ.get('NY_TAXI_PASSWORD')
+password = os.environ.get('NY_TAXI_PASSWORD')   #TODO: move this to .env later
 POSTGRES_CONN_STRING = f'postgresql://datalake_user:{password}@localhost:5432/ny_taxi_data'
 
 DATA_PATH = '/home/tb24/projects/Datalake-project/data'
