@@ -21,7 +21,6 @@ def main():
                         config=Config(signature_version='s3v4'),
                         region_name='us-east-1')
 
-    # upload a file from local file system '/home/john/piano.mp3' to bucket 'songs' with 'piano.mp3' as the object name.
     s3.Bucket('demo').upload_file("/home/tb24/projects/Datalake-project/data/yellow_tripdata_2023-01.csv",'yellow_taxi_data_Jan2023.csv')
     print('Successfully uploaded to bucket')
 
