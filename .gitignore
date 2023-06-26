@@ -181,5 +181,6 @@ data/yellow_tripdata_2023-01.csv
 .gitignore
 data/yellow_tripdata_2023-03.csv
 data/yellow_tripdata_2023-02.csv
+data/green_tripdata_2023-01.parquet
 test.py
 
