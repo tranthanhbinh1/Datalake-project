@@ -4,12 +4,9 @@ from pyspark.sql.functions import explode
 from pyspark.sql.functions import from_json, col
 
 
-# Define the Kafka producer , RUN DOCKER COMPOSE UP FIRST
-producer = KafkaProducer(bootstrap_servers='localhost:9092')
-
 # Define the Kafka broker and topic
 bootstrap_server = "localhost:9092"
-topic = "stock_analyzer"
+topic = "dbToS3"
 
 spark = SparkSession.builder.appName("PostgresStreamToS3").getOrCreate()
 
