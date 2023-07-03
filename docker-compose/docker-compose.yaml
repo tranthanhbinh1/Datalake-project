@@ -46,7 +46,6 @@ services:
     - -c
     - |
       confluent-hub install --no-prompt confluentinc/kafka-connect-jdbc:10.7.3
-      confluent-hub install --no-prompt confluentinc/kafka-connect-ftps:1.0.4
       confluent-hub install --no-prompt jcustenborder/kafka-connect-spooldir:1.0.31
       /etc/confluent/docker/run
     

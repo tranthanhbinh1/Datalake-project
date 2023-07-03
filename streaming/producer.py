@@ -1,6 +1,5 @@
 from kafka import KafkaProducer
 
-
 # Define the Kafka producer , RUN DOCKER COMPOSE UP FIRST
 producer = KafkaProducer(bootstrap_servers='localhost:9092')
 
