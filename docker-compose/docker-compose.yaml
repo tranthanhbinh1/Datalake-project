@@ -46,20 +46,6 @@ services:
       - zookeeper
       - kafka
 
-  postgres:
-    image: debezium/postgres:15
-    container_name: postgres
-    hostname: postgres
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=postgres
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - postgres_data:/var/lib/postgresql/data
-
   minio:
     image: quay.io/minio/minio:RELEASE.2022-05-26T05-48-41Z
     hostname: minio
@@ -81,18 +67,6 @@ services:
       - minio
     entrypoint: >
       /bin/sh -c "  /usr/bin/mc config host add myminio http://minio:9000 minio minio123; /usr/bin/mc rm -r --force myminio/commerce;  /usr/bin/mc mb myminio/commerce;  /usr/bin/mc policy download myminio/commerce;  /usr/bin/mc cp /tmp/data myminio/commerce; exit 0;  "
-
-  datagen:
-    build:
-      context: .
-      dockerfile: ./container/datagen/Dockerfile
-    entrypoint:
-      - python
-      - ./gen_user_payment_data.py
-    container_name: datagen
-    restart: on-failure
-    depends_on:
-      - postgres
 
 volumes:
   zookeeper_data:
