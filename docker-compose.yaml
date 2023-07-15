@@ -28,7 +28,7 @@ services:
 
   connect:
     build:
-      context: ./container/connect
+      context: ./containers/connectors
       dockerfile: Dockerfile
     container_name: connect
     hostname: connect
@@ -103,15 +103,6 @@ services:
       MINIO_SECRET_KEY: minio123
     command: server --console-address ":9001" /data
 
-      
-  trino-setup:
-    build: ./cli 
-    restart: "no"
-    networks:
-      - trino-network
-    depends_on:
-      - trino
-  
   metabase:
     image: metabase/metabase:v0.45.3
     ports:
@@ -128,6 +119,10 @@ services:
       - trino
 
 volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
   trino:
     driver: local
   metastore_conf:

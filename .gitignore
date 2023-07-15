@@ -178,9 +178,9 @@ cython_debug/
 
 /spark-e1f58f69-980d-48e2-82f4-2328a6fb6340
 data/yellow_tripdata_2023-01.csv
-.gitignore
 data/yellow_tripdata_2023-03.csv
 data/yellow_tripdata_2023-02.csv
 data/green_tripdata_2023-01.parquet
 test.py
 
+minio/
